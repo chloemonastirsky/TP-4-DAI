@@ -1,8 +1,16 @@
-const horaActual = new Date();
+import dayjs from "dayjs";
 
-function Time() {
-    this.getTime = function() {
-        return horaActual.toLocaleTimeString();
+class Time {
+    getTime() {
+        return dayjs().format('HH:mm:ss');
+    }
+
+    getDate() {
+        return dayjs().format('DD/MM/YYYY');
+    }
+
+    getFullDate() {
+        return dayjs().format('DD/MM/YYYY HH:mm:ss');
     }
 }
 

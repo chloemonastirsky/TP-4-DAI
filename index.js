@@ -1,5 +1,5 @@
 import express from "express";
-import Time from "./src/Time.js";
+import Time from "./src/time.js"
 const app = express()
 const port = 3000
 
@@ -15,15 +15,15 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 })
 
-app.get('/hora', (req, res) => {
-    const time = new Time();
-    res.send(`La hora actual es: ${time.getTime()}`);
-})
+ app.get('/hora', (req, res) => {
+     const time = new Date();
+     res.send(`La hora actual es: ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()   }`);
+ })
 
 app.get('/fecha-completa', (req, res) => {
-    const time = new Time();
-    res.send(`La fecha y hora actual es: ${time.getTime()}`);
-});
+     const time = new Date();
+     res.send(`La fecha y hora actual es: ${time.toLocaleString()}`);
+ });
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
